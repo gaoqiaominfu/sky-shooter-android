@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 100%);
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 480px;
+    max-height: 960px;
+    margin: 0 auto;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* HUD */
+.hud {
+    position: absolute;
+    top: max(10px, env(safe-area-inset-top));
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.hud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hud-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.hud-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 游戏界面 */
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 20;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    min-width: 280px;
+    max-width: 90%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-title {
+    font-size: clamp(28px, 8vw, 42px);
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #4a9eff, #00d9ff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(74, 158, 255, 0.5);
+}
+
+.game-subtitle {
+    font-size: clamp(14px, 4vw, 16px);
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.controls-hint {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.controls-hint p {
+    font-size: clamp(12px, 3.5vw, 14px);
+    color: #ccc;
+    margin: 8px 0;
+}
+
+.game-over-title {
+    font-size: clamp(32px, 10vw, 48px);
+    color: #ff4757;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
+}
+
+.final-score {
+    margin-bottom: 25px;
+}
+
+.final-score p:first-child {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.score-number {
+    font-size: clamp(36px, 10vw, 56px);
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pause-title {
+    font-size: clamp(28px, 8vw, 36px);
+    color: #ffa502;
+    margin-bottom: 25px;
+}
+
+/* 按钮 */
+.btn {
+    padding: clamp(14px, 4vw, 18px) clamp(40px, 10vw, 60px);
+    font-size: clamp(16px, 4.5vw, 20px);
+    font-weight: bold;
+    background: linear-gradient(135deg, #4a9eff, #00d9ff);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(74, 158, 255, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(74, 158, 255, 0.6);
+}
+
+.btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 特效 */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
